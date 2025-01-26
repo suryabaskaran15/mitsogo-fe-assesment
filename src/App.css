@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+#signup-email {
+    background-color: white;
+    width: 280px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 10px; 
+    font-size: 14px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+    margin-right: 8px;
+}
+
+#signup-email::placeholder {
+    color: lightgrey; 
+    font-size: 14px; 
+}
+
+.SignupStripe_btn-wrapper__bYUSe .SignupStripe_btn-label__U_7uu {
+    height: 53px;
+    border-radius: 3px;
+    transition-duration: .25s;
+}
+
+.nav-header {
+    transition: ease-in-out 0s, border-bottom-color .2s ease-in-out .1s, outline-color .2s ease-in-out .1s;
+}
+
+.header-wrap {
+    background: #090f1d;
+    background: linear-gradient(180deg, rgba(9, 15, 29, .898), rgba(9, 15, 29, 0));
+}
