@@ -1,88 +1,81 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const LogoCarousel = () => {
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  const logos = [
+    { alt: "Costco", src: "/src/assets/logo/image.png" },
+    { alt: "SAIC", src: "/src/assets/logo/image copy.png" },
+    { alt: "Merck", src: "/src/assets/logo/image copy 2.png" },
+    { alt: "Marriott", src: "/src/assets/logo/image copy 3.png" },
+    { alt: "Marriott", src: "/src/assets/logo/image copy 4.png" },
+    { alt: "Marriott", src: "/src/assets/logo/image copy 5.png" },
+    { alt: "Marriott", src: "/src/assets/logo/image copy 6.png" },
+    { alt: "Marriott", src: "/src/assets/logo/image copy 7.png" },
+    { alt: "Marriott", src: "/src/assets/logo/image copy 8.png" },
+  ];
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (carouselRef.current) {
+      setIsDragging(true);
+      setStartX(e.pageX - carouselRef.current.offsetLeft);
+      setScrollLeft(carouselRef.current.scrollLeft);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const scroll = (x - startX) * 2; // Adjust the scrolling speed here
+    carouselRef.current.scrollLeft = scrollLeft - scroll;
+  };
+
   return (
     <section className="pb-[60px] pt-[10px] lg:pb-[120px] md:pt-[20px] bg-[#F7F7F7]">
       <div className="w-[88%] mx-auto md:max-w-[1300px] relative">
+        {/* Left gradient overlay */}
         <div className="w-[70px] sm:w-[100px] h-[40px] sm:h-[80px] absolute left-0 bg-gradient-to-r from-[#F7F7F7] via-[#F7F7F7] to-transparent z-[1]"></div>
+
+        {/* Right gradient overlay */}
         <div className="w-[70px] sm:w-[100px] h-[40px] sm:h-[80px] absolute right-0 bg-gradient-to-l from-[#F7F7F7] via-[#F7F7F7] to-transparent z-[1]"></div>
-        <div className="slick-slider slick-initialized" dir="ltr">
-          <div className="slick-list" style={{ padding: "0px" }}>
-            <div
-              className="slick-track"
-              style={{
-                width: "4564px",
-                opacity: "1",
-                transform: "translate3d(-2282px, 0px, 0px)",
-              }}
-            >
-              {[
-                {
-                  alt: "Costco",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/costco.svg",
-                },
-                {
-                  alt: "SAIC",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/saic.svg",
-                },
-                {
-                  alt: "Hilton",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/hilton.svg",
-                },
-                {
-                  alt: "Group 1 Automotive",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/group1-automotive.png",
-                },
-                {
-                  alt: "Lowe's",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/lowes.svg",
-                },
-                {
-                  alt: "Polaris",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/polaris.svg",
-                },
-                {
-                  alt: "Gorillas",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/gorillas.svg",
-                },
-                {
-                  alt: "Wolt",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/wolt.svg",
-                },
-                {
-                  alt: "Marriott",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/marriott-intl.svg",
-                },
-                {
-                  alt: "Merck",
-                  src: "https://static.hexnode.com/v2/assets/img/logos/dark-logo/merck.svg",
-                },
-              ].map((logo, index) => (
-                <div
-                  key={index}
-                  data-index={index}
-                  className="slick-slide"
-                  tabIndex={-1}
-                >
-                  <div>
-                    <figure
-                      className="block max-w-[130px] sm:max-w-[200px] w-full"
-                      tabIndex={-1}
-                    >
-                      <img
-                        alt={logo.alt}
-                        loading="lazy"
-                        width="260"
-                        height="95"
-                        decoding="async"
-                        src={logo.src}
-                        className="color:transparent"
-                      />
-                    </figure>
-                  </div>
-                </div>
-              ))}
-            </div>
+
+        {/* Carousel */}
+        <div
+          className="overflow-hidden"
+          ref={carouselRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
+          <div
+            className="flex space-x-4"
+            style={{
+              width: "100%",
+            }}
+          >
+            {logos.map((logo, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0"
+                style={{ width: "163px" }}
+              >
+                <figure className="block max-w-[130px] sm:max-w-[200px] w-full">
+                  <img alt={logo.alt} src={logo.src} className="w-full" />
+                </figure>
+              </div>
+            ))}
           </div>
         </div>
       </div>

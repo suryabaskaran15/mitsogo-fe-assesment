@@ -55,26 +55,48 @@ const TestimonialSlider = () => {
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((review, index) => (
               <div
                 key={index}
-                className="min-w-full flex flex-col items-center space-y-6 bg-white p-8 rounded-lg shadow-md"
+                className={`slick-slide ${
+                  index === currentIndex ? "slick-active slick-current" : ""
+                }`}
+                style={{ width: "960px" }}
               >
-                <div className="w-24 h-24 overflow-hidden rounded-full border-2 border-gray-200">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="flex flex-col md:flex-row overflow-hidden rounded-[18px] relative group">
+                  <div className="max-h-[400px] w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[unset] md:h-[unset] lg:w-[320px] lg:h-[320px] relative md:basis-[47%] md:max-w-[320px] leading-[0px] overflow-hidden">
+                    <img
+                      alt={`${review.name} image`}
+                      loading="lazy"
+                      className="object-cover align-middle"
+                      style={{
+                        position: "absolute",
+                        height: "100%",
+                        width: "100%",
+                      }}
+                      src={review.image}
+                    />
+                  </div>
+                  <div className="max-w-[640px] bg-[#ffffff] flex justify-center flex-col grow md:min-h-[310px]">
+                    <div className="md:max-h-[125px] md:overflow-scroll px-[20px] md:pl-[60px] md:pr-[55px] pt-[20px] pb-[25px] md:py-0 md:mt-[40px] md:mb-[20px] cusreviewslider_hide-scrollbar__lQqUC">
+                      <h4 className="text-[16px] sm:text-[20px] md:text-[24px] leading-[24px] sm:leading-[32px] text-[#020a19] font-bold text-center md:text-left antialiased">
+                        "{review.quote}"
+                      </h4>
+                    </div>
+                    <div className="px-[20px] py-[20px] md:pl-[60px] md:pr-[55px] md:py-0 flex flex-col justify-center items-center md:min-h-[120px]">
+                      <span className="h-[2px] w-full bg-[#F7F7F7] relative top-[-20px] rounded-[5px]"></span>
+                      <p className="text-center md:text-left w-full mx-auto text-[14px] leading-[11px] sm:text-[20px] sm:leading-[33px] pb-[5px] sm:pb-0 text-[#020a19] font-bold">
+                        {review.name}
+                      </p>
+                      <small className="text-center md:text-left w-full mx-auto text-[12px] leading-[16px] sm:text-[14px] sm:leading-[18px] text-[#020a19] font-normal max-w-[294px] opacity-70">
+                        {review.role}
+                      </small>
+                      <small className="text-center mx-auto text-[12px] leading-[16px] sm:text-[14px] sm:leading-[18px] text-[#020a19] font-normal max-w-[294px] opacity-70">
+                        {review.company}
+                      </small>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xl text-gray-800 font-semibold">
-                  "{testimonial.quote}"
-                </p>
-                <p className="text-gray-700 font-bold">{testimonial.name}</p>
-                <p className="text-gray-600 text-sm">
-                  {testimonial.role && `${testimonial.role},`}{" "}
-                  {testimonial.company}
-                </p>
               </div>
             ))}
           </div>
