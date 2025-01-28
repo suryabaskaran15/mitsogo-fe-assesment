@@ -41,6 +41,21 @@ const LogoCarousel = () => {
     carouselRef.current.scrollLeft = scrollLeft - scroll;
   };
 
+  const handleDragStart = (e: React.DragEvent) => {
+    e.preventDefault(); // Prevent the default drag behavior
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollLeft += 1; // Adjust this value for scrolling speed
+      }
+    }, 200); // Adjust the interval timing (20ms) for scroll speed
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <section className="pb-[60px] pt-[10px] lg:pb-[120px] md:pt-[20px] bg-[#F7F7F7]">
       <div className="w-[88%] mx-auto md:max-w-[1300px] relative">
@@ -72,7 +87,13 @@ const LogoCarousel = () => {
                 style={{ width: "163px" }}
               >
                 <figure className="block max-w-[130px] sm:max-w-[200px] w-full">
-                  <img alt={logo.alt} src={logo.src} className="w-full" />
+                  <img
+                    alt={logo.alt}
+                    src={logo.src}
+                    className="w-full"
+                    draggable={false} // Prevent native dragging
+                    onDragStart={handleDragStart} // Prevent drag start event
+                  />
                 </figure>
               </div>
             ))}

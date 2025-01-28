@@ -4,27 +4,27 @@ const PlatformsSupported = () => {
   const platforms = [
     {
       alt: "Android",
-      src: "https://static.hexnode.com/v2/assets/img/ads-pages/platform/android.svg",
+      src: "/src/assets/platform/android.png",
     },
     {
       alt: "Windows",
-      src: "https://static.hexnode.com/v2/assets/img/ads-pages/platform/windows.svg",
+      src: "/src/assets/platform/windows.png",
     },
     {
       alt: "iOS",
-      src: "https://static.hexnode.com/v2/assets/img/ads-pages/platform/ios.svg",
+      src: "/src/assets/platform/ios.png",
     },
     {
       alt: "Android TV",
-      src: "https://static.hexnode.com/v2/assets/img/ads-pages/platform/android-tv.svg",
+      src: "/src/assets/platform/androidTV.png",
     },
     {
       alt: "Apple TV",
-      src: "https://static.hexnode.com/v2/assets/img/ads-pages/platform/apple-tv.svg",
+      src: "/src/assets/platform/Itv.png",
     },
     {
       alt: "Amazon Fire",
-      src: "https://static.hexnode.com/v2/assets/img/ads-pages/platform/amazon-fire.png",
+      src: "/src/assets/platform/firetv.png",
     },
   ];
 

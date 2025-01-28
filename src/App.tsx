@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom';
+import Routing from './router/router';
 import './App.css'
-import Home from './pages/Home'
 
 function App() {
 
   return (
     <>
-      <Home />
+      <BrowserRouter>
+        <Routing />
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App

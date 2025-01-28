@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 
 const testimonials = [
   {
@@ -44,13 +45,12 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+    <section className="pb-[30px] pt-[60px] lg:pt-[120px] md:pb-[60px] bg-[#F7F7F7]">
+      <div className="w-[88%] mx-auto max-w-[1300px]">
+        <h2 className="antialiased text-[32px] md:text-[40px] leading-[40px] md:leading-[1.3] text-center font-bold text-[#020a19] pb-0 md:pb-[20px]">
           Why should you choose Hexnode?
         </h2>
-        <div className="relative overflow-hidden">
-          {/* Slider */}
+        <div className="relative mx-auto overflow-hidden max-w-[960px]">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -58,43 +58,25 @@ const TestimonialSlider = () => {
             {testimonials.map((review, index) => (
               <div
                 key={index}
-                className={`slick-slide ${
-                  index === currentIndex ? "slick-active slick-current" : ""
-                }`}
-                style={{ width: "960px" }}
+                className="min-w-full flex flex-col md:flex-row overflow-hidden rounded-[18px] relative"
               >
-                <div className="flex flex-col md:flex-row overflow-hidden rounded-[18px] relative group">
-                  <div className="max-h-[400px] w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[unset] md:h-[unset] lg:w-[320px] lg:h-[320px] relative md:basis-[47%] md:max-w-[320px] leading-[0px] overflow-hidden">
+                <div
+                  key={index}
+                  className="min-w-full flex flex-col md:flex-row overflow-hidden rounded-[18px] relative"
+                >
+                  <div className="w-full md:w-[50%] h-[320px]">
                     <img
                       alt={`${review.name} image`}
-                      loading="lazy"
-                      className="object-cover align-middle"
-                      style={{
-                        position: "absolute",
-                        height: "100%",
-                        width: "100%",
-                      }}
+                      className="object-cover w-full h-full"
                       src={review.image}
                     />
                   </div>
-                  <div className="max-w-[640px] bg-[#ffffff] flex justify-center flex-col grow md:min-h-[310px]">
-                    <div className="md:max-h-[125px] md:overflow-scroll px-[20px] md:pl-[60px] md:pr-[55px] pt-[20px] pb-[25px] md:py-0 md:mt-[40px] md:mb-[20px] cusreviewslider_hide-scrollbar__lQqUC">
-                      <h4 className="text-[16px] sm:text-[20px] md:text-[24px] leading-[24px] sm:leading-[32px] text-[#020a19] font-bold text-center md:text-left antialiased">
-                        "{review.quote}"
-                      </h4>
-                    </div>
-                    <div className="px-[20px] py-[20px] md:pl-[60px] md:pr-[55px] md:py-0 flex flex-col justify-center items-center md:min-h-[120px]">
-                      <span className="h-[2px] w-full bg-[#F7F7F7] relative top-[-20px] rounded-[5px]"></span>
-                      <p className="text-center md:text-left w-full mx-auto text-[14px] leading-[11px] sm:text-[20px] sm:leading-[33px] pb-[5px] sm:pb-0 text-[#020a19] font-bold">
-                        {review.name}
-                      </p>
-                      <small className="text-center md:text-left w-full mx-auto text-[12px] leading-[16px] sm:text-[14px] sm:leading-[18px] text-[#020a19] font-normal max-w-[294px] opacity-70">
-                        {review.role}
-                      </small>
-                      <small className="text-center mx-auto text-[12px] leading-[16px] sm:text-[14px] sm:leading-[18px] text-[#020a19] font-normal max-w-[294px] opacity-70">
-                        {review.company}
-                      </small>
-                    </div>
+                  <div className="w-full md:w-[50%] bg-white p-6 flex flex-col justify-center">
+                    <h4 className="text-[20px] md:text-[24px] font-bold mb-4">
+                      "{review.quote}"
+                    </h4>
+                    <p className="text-[16px] font-bold">{review.name}</p>
+                    <small className="opacity-70">{review.company}</small>
                   </div>
                 </div>
               </div>
@@ -103,16 +85,17 @@ const TestimonialSlider = () => {
 
           {/* Navigation Buttons */}
           <button
+            // className="absolute top-[50%] left-[-40px] transform -translate-y-[50%] w-[40px] h-[40px] bg-white rounded-full shadow-md flex items-center justify-center"
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center"
             onClick={handlePrev}
           >
-            &lt;
+            <MdNavigateBefore />
           </button>
           <button
             className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center"
             onClick={handleNext}
           >
-            &gt;
+            <MdNavigateNext />
           </button>
         </div>
 
