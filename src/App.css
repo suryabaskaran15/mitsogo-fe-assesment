@@ -37,230 +37,77 @@
   );
 }
 
-.hex__sign_in_container_wrapper {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hex__sign_in_container_wrapper .hex__row {
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: none;
-  flex-wrap: nowrap;
-}
-
-.hex__no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-.hex__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.container {
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-@media screen and (max-width: 1480px) {
-  .hex__sign_in_content_wrapper {
-    padding-left: 6%;
-  }
-}
-.hex__sign_in_content_wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding-top: 200px;
-  padding-bottom: 0;
-  padding-right: 130px;
-}
-
-@media screen and (min-width: 1301px) and (max-width: 1500px) {
-  .hex__sign_in_logo_wrapper {
-    width: 450px;
-  }
-}
-@media screen and (min-width: 1101px) {
-  .hex__sign_in_logo_wrapper {
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: -ms-sticky;
-    position: sticky;
-    top: 0;
-    right: 0;
-  }
-}
-
-.hex__sign_in_content_group {
-  position: relative;
-  padding: 0;
-  margin: 0;
-}
-
-@media screen and (max-width: 1480px) {
-  .hex__sign_in_content_wrapper {
-    padding-left: 6%;
-  }
-}
-.hex__sign_in_content_wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding-top: 200px;
-  padding-bottom: 0;
-  padding-right: 130px;
-}
-
-.hex__sign_in_logo_wrapper {
-  width: 515px;
-  height: 100vh;
-  min-height: 600px;
-  background: #fff;
-}
-
-.hex__sign_in_logo_conatainer {
-  display: -webkit-box;
-  display: box;
-  display: -webkit-flex;
-  display: -ms-flex-box;
-  display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-direction: normal;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
-}
-.hex__sign_in_logo_conatainer {
-  background-image: url(https://static.hexnode.com/img/login/2x/create-account.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 100%;
   width: 100%;
 }
 
-.hex__sign_in_logo_conatainer {
-  display: -webkit-box;
-  display: box;
-  display: -webkit-flex;
-  display: -ms-flex-box;
+.left-content {
+  width: 75%;
+  padding: 40px;
   display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-direction: normal;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
-}
-.hex__sign_in_logo_conatainer {
-  background-image: url(https://static.hexnode.com/img/login/2x/create-account.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 100%;
-  width: 100%;
+  justify-content: center; /* Vertically center content */
+  text-align: left; /* Center text inside */
+  height: 100vh; /* Full height of the viewport for vertical centering */
+  box-sizing: border-box; /* Ensure padding is included in the height calculation */
 }
 
-.hex__sign_in_trial_title {
-  font-size: 28px;
+.left-content h2 {
+  font-size: 36px;
   line-height: 1.2;
-  font-weight: var(--hex_font_normal);
-  color: #fff;
-  padding: 0;
-  margin: 0 0 25px;
-  text-align: center;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.hex__sign_in_trial_btn {
-  display: inline-block;
+.left-content p {
   font-size: 18px;
-  line-height: 28px;
-  font-weight: var(--hex_font_normal);
-  margin: 0;
-  color: var(--hex_color_sec);
-  background-color: #fff;
-  text-transform: uppercase;
-  padding: 13px 35px;
-  border-radius: 3px;
-  -webkit-transition: all 0.3s cubic-bezier(0.04, 0, 0.2, 1);
-  -moz-transition: all 0.3s cubic-bezier(0.04, 0, 0.2, 1);
-  -ms-transition: all 0.3s cubic-bezier(0.04, 0, 0.2, 1);
-  -o-transition: all 0.3s cubic-bezier(0.04, 0, 0.2, 1);
-  transition: all 0.3s cubic-bezier(0.04, 0, 0.2, 1);
-}
-
-.hex__sign_in_logo_title {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: var(--hex_font_normal);
-  color: #fff;
+  line-height: 32px;
+  font-weight: 400;
+  color: #556575;
   padding: 0;
-  margin: 0;
-  text-align: center;
+  margin: 0 0 15px;
 }
 
-.sign-in-logos {
-  display: block;
-  width: 90%;
-  margin: 120px auto 10px;
-}
-
-.sign-in-logos__row {
-  display: -webkit-flex;
-  display: -ms-flex-box;
+.input_wrapper {
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  max-width: 450px;
-  margin: 25px auto 25px;
-}
-
-.sign-in-logos__row .sign-in-logos__item {
-  display: -webkit-flex;
-  display: -ms-flex-box;
-  display: flex;
-  max-width: 33.33%;
-  flex: 33.33%;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  height: 76px;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure inputs are responsive */
+  max-width: 400px; /* Optional: Limit the input field width */
 }
 
-/* Center the 'Get Started for free' button */
-/* Move the div down slightly */
-.hex_sign_in_trial_req {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  top: 100px; /* Adjust this value to move the div down */
+.input_wrapper input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.center-button {
-  margin-top: 20px; /* Optional: Adjust for spacing */
-  text-align: center;
+.input_wrapper .domain_name {
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+}
+
+.hex__sign_in_btn {
+  padding: 10px 20px;
+  background-color: #d9001c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.hex__sign_in_btn:disabled {
+  background-color: #bbb;
+}
+
+.hex__sign_in_error_wrapper {
+  color: #d9001c;
+  margin-top: 10px;
 }

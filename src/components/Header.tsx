@@ -36,7 +36,7 @@ const Header = () => {
           <a
             className="inline-block max-w-[121px]"
             aria-label="Hexnode"
-            href="https://www.hexnode.com/"
+            href="/"
           >
             <HexLogo isScrolled={isScrolled} />
           </a>

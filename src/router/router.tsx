@@ -9,6 +9,7 @@ const Routing = () => {
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/signin" element={<SignInPage />} />
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 };

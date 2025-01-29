@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
 import HexLogo from "../components/svg/HexLogo";
+import { Link } from "react-router-dom";
 
 const SignUpPage: React.FC = () => {
   const validate = (values: { email?: string }) => {
@@ -20,13 +21,17 @@ const SignUpPage: React.FC = () => {
 
   return (
     <div className="relative flex flex-wrap min-h-screen">
-      {/* HexLogo in Top Left */}
-      <div className="absolute top-6 mx-10">
-        <HexLogo isScrolled={true} />
-      </div>
-
       {/* Sign Up Section */}
       <div className="w-full lg:w-2/3 p-6 flex flex-col justify-center relative">
+        <div className="absolute top-6 left-10 z-10">
+          <Link
+            aria-label="Hexnode"
+            to="/" // Use Link with 'to' for navigation
+          >
+            <HexLogo isScrolled={true} />
+          </Link>
+        </div>
+
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold">Try Hexnode free for 14 days</h2>
@@ -40,8 +45,6 @@ const SignUpPage: React.FC = () => {
               handleSubmit,
               submitting,
               pristine,
-              values,
-              errors,
             }) => (
               <form
                 onSubmit={handleSubmit}
@@ -53,11 +56,10 @@ const SignUpPage: React.FC = () => {
                       <div className="relative w-full">
                         <input
                           {...input}
-                          className={`w-full px-4 py-3 border ${
-                            meta.touched && meta.error
-                              ? "border-red-500"
-                              : "border-gray-300"
-                          } rounded-md focus:outline-none focus:ring-2 focus:ring-red-500`}
+                          className={`w-full px-4 py-3 border ${meta.touched && meta.error
+                            ? "border-red-500"
+                            : "border-gray-300"
+                            } rounded-md focus:outline-none focus:ring-2 focus:ring-red-500`}
                           type="email"
                           placeholder="Your work email"
                           autoComplete="email"
@@ -85,7 +87,7 @@ const SignUpPage: React.FC = () => {
         </div>
 
         {/* Contact Info (Centered in Sign-Up Section) */}
-        <div className="absolute bottom-6 flex mx-10  w-full">
+        <div className="absolute bottom-6 flex mx-10 w-full">
           <ul className="space-x-6 flex">
             <li>
               <a href="tel:+1-833-439-6633" className="text-blue-600">
